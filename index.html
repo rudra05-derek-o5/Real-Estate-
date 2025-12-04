@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PowerFit Club - Fitness Gym</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #222;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 20px auto;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(to right, #ff9800, #ff5722);
+            color: #fff;
+            padding: 30px 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #111;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            opacity: 0.9;
+        }
+
+        /* Section titles */
+        .section-title {
+            font-size: 20px;
+            margin: 25px 0 10px;
+            border-left: 4px solid #ff9800;
+            padding-left: 8px;
+        }
+
+        /* Class schedule */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            font-size: 13px;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .schedule-table th {
+            background-color: #f0f0f0;
+        }
+
+        /* Trainers */
+        .trainer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .trainer-card {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            font-size: 13px;
+        }
+
+        .trainer-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .trainer-card h3 {
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+
+        .trainer-card p.specialty {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        /* Membership plans */
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .plan-card {
+            background-color: #fff;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .plan-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .plan-card .price {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: #ff5722;
+            font-weight: bold;
+        }
+
+        .plan-card ul {
+            list-style: none;
+            margin-top: 5px;
+        }
+
+        .plan-card li {
+            margin-bottom: 4px;
+        }
+
+        /* Blog section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 13px;
+        }
+
+        .blog-card h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .blog-card p.meta {
+            font-size: 11px;
+            color: #777;
+            margin-bottom: 6px;
+        }
+
+        /* Contact / Join form */
+        .join-box {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .join-box label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+        }
+
+        .join-box input,
+        .join-box select,
+        .join-box textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            font-size: 13px;
+        }
+
+        .join-box button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff9800;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .join-box button:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #111;
+            color: #ccc;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+
+        /* Small screens */
+        @media (max-width: 600px) {
+            .hero h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>PowerFit Club</h1>
+        <p>Stronger every day. Join our fitness family.</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#classes">Classes</a>
+        <a href="#trainers">Trainers</a>
+        <a href="#plans">Membership</a>
+        <a href="#blog">Blog</a>
+        <a href="#join">Join Now</a>
+    </nav>
+
+    <div class="container">
+        <!-- Hero -->
+        <section class="hero" id="home">
+            <h2>Welcome to PowerFit Club</h2>
+            <p>Full-body workouts, professional trainers, and a friendly community to help you reach your goals.</p>
+            <button onclick="document.getElementById('join').scrollIntoView()">Join Today</button>
+        </section>
+
+        <!-- Class Schedule -->
+        <h2 class="section-title" id="classes">Class Schedule</h2>
+        <table class="schedule-table">
+            <tr>
+                <th>Day</th>
+                <th>Morning</th>
+                <th>Afternoon</th>
+                <th>Evening</th>
+            </tr>
+            <tr>
+                <td>Monday</td>
+                <td>6:00 AM - Yoga</td>
+                <td>1:00 PM - Zumba</td>
+                <td>7:00 PM - Strength Training</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>6:30 AM - HIIT</td>
+                <td>12:30 PM - Abs & Core</td>
+                <td>7:30 PM - Cardio Blast</td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>7:00 AM - Functional Training</td>
+                <td>1:00 PM - Stretching</td>
+                <td>6:30 PM - CrossFit</td>
+            </tr>
+            <tr>
+                <td>Saturday</td>
+                <td>8:00 AM - Power Yoga</td>
+                <td>—</td>
+                <td>5:00 PM - Group Cycling</td>
+            </tr>
+        </table>
+
+        <!-- Trainers -->
+        <h2 class="section-title" id="trainers">Trainer Profiles</h2>
+        <div class="trainer-grid">
+            <div class="trainer-card">
+                <img src="https://images.pexels.com/photos/8660236/pexels-photo-8660236.jpeg" alt="Trainer 1">
+                <h3>Rahul Verma</h3>
+                <p class="specialty">Strength & Conditioning Coach</p>
+                <p>Rahul has 5+ years of experience helping clients build strength with safe and effective workouts.</p>
+            </div>
+
+            <div class="trainer-card">
+                <img src="https://images.pexels.com/photos/7676400/pexels-photo-7676400.jpeg" alt="Trainer 2">
+                <h3>Priya Sharma</h3>
+                <p class="specialty">Yoga & Flexibility Trainer</p>
+                <p>Priya focuses on posture, breathing and flexibility, making yoga simple for beginners.</p>
+            </div>
+
+            <div class="trainer-card">
+                <img src="https://images.pexels.com/photos/7676533/pexels-photo-7676533.jpeg" alt="Trainer 3">
+                <h3>Arjun Singh</h3>
+                <p class="specialty">Weight Loss & Diet Coach</p>
+                <p>Arjun designs easy-to-follow workout and diet plans for healthy and sustainable fat loss.</p>
+            </div>
+        </div>
+
+        <!-- Membership Plans -->
+        <h2 class="section-title" id="plans">Membership Plans</h2>
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>Basic</h3>
+                <p class="price">₹799 / month</p>
+                <ul>
+                    <li>Gym access (Daytime)</li>
+                    <li>Locker facility</li>
+                    <li>1 fitness assessment</li>
+                </ul>
+            </div>
+
+            <div class="plan-card">
+                <h3>Standard</h3>
+                <p class="price">₹1199 / month</p>
+                <ul>
+                    <li>Full-day gym access</li>
+                    <li>All group classes</li>
+                    <li>Monthly progress tracking</li>
+                </ul>
+            </div>
+
+            <div class="plan-card">
+                <h3>Premium</h3>
+                <p class="price">₹1799 / month</p>
+                <ul>
+                    <li>Personal trainer (2 sessions/week)</li>
+                    <li>Diet & nutrition guidance</li>
+                    <li>Priority support</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Blog / Fitness Tips -->
+        <h2 class="section-title" id="blog">Fitness Tips Blog</h2>
+        <div class="blog-grid">
+            <article class="blog-card">
+                <h3>5 Beginner-Friendly Gym Tips</h3>
+                <p class="meta">Training • 3 min read</p>
+                <p>Start with light weights, focus on form, and don’t rush. Small steps every day lead to big changes.</p>
+            </article>
+
+            <article class="blog-card">
+                <h3>Simple Pre-Workout Snacks</h3>
+                <p class="meta">Nutrition • 4 min read</p>
+                <p>Bananas, oats, and nuts give you quick energy before a workout without feeling too heavy.</p>
+            </article>
+
+            <article class="blog-card">
+                <h3>Why Rest Days Are Important</h3>
+                <p class="meta">Recovery • 2 min read</p>
+                <p>Your muscles grow when you rest. At least one rest day per week helps you avoid injury and burnout.</p>
+            </article>
+        </div>
+
+        <!-- Join / Contact -->
+        <h2 class="section-title" id="join">Join PowerFit Club</h2>
+        <section class="join-box">
+            <p style="margin-bottom:10px;">
+                Fill this form and we will contact you with membership details and a free trial session.
+            </p>
+            <form>
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" placeholder="Enter your phone number">
+
+                <label for="plan">Preferred Plan</label>
+                <select id="plan">
+                    <option value="">-- Select a plan --</option>
+                    <option>Basic</option>
+                    <option>Standard</option>
+                    <option>Premium</option>
+                </select>
+
+                <label for="message">Your Fitness Goal</label>
+                <textarea id="message" rows="4" placeholder="Write about your goal (weight loss, strength, etc.)"></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 PowerFit Club • All rights reserved.
+    </footer>
+
+</body>
+</html>
